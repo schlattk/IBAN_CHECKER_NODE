@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  form(method="get",action="/iban")
+    p
+      | Press here to check another IBAN:
+
+    input(type='submit', value='',name='')
+
+    p Your IBAN is #{result}

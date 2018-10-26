@@ -19,7 +19,7 @@ router.post('/submit', function(req, res, next) {
 });
 
 router.get('/display', function(req, res, next) {
-    res.render('iban',{result:req.query.valid});
-  })
-  
+    res.render('display',{result:req.query.valid});
+  });
+
 module.exports = router;
