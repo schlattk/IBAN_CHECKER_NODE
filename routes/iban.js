@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var { parse } = require('querystring');
 var messager = require('../public/javascripts/checker');
 var db = require('../db')
 
@@ -9,7 +10,7 @@ router.get('/', function(req, res, next) {
   res.render('iban',{result: ''});
 });
 
-router.post('/submit', function(req, res, next) {
+router.post('/', function(req, res, next) {
   var number = req.body.number;
   var test = new messager(number);
   var result = "";
