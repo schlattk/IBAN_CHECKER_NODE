@@ -1,21 +1,14 @@
-var express = require('express');
-var router = express.Router();
-var { parse } = require('querystring');
-var messager = require('../public/javascripts/checker');
-var db = require('../db')
-
-
+const express = require('express');
+const router = express.Router();
+const testIban = require('../public/javascripts/testIban');
 
 router.get('/', function(req, res, next) {
   res.render('iban',{result: ''});
 });
 
 router.post('/', function(req, res, next) {
-  var number = req.body.number;
-  var test = new messager(number);
-  var result = "";
-  if(test.check()) {result = "VALID"} else {result = "INVALID"};
-
+  let number = req.body.number;
+  if(testIban(number)) {result = "VALID"} else {result = "INVALID"};
   res.redirect("/iban/display/?valid=" + result)
 });
 

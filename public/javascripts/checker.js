@@ -1,8 +1,9 @@
+const stringCleaner = require ('./stringCleaner');
 
-class Test_iban {
+class Tester {
 
     constructor(iban){
-    this.iban = iban.toString().replace(/ /g,'').replace(/,/,'');
+    this.iban = stringCleaner(iban);
     this.divisor = 97;
     this.valid = true;
     }
@@ -28,4 +29,4 @@ class Test_iban {
     }
   };
 
-  module.exports = Test_iban;
+  module.exports = Tester;
