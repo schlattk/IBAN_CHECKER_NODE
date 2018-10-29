@@ -1,11 +1,9 @@
 extends layout
 
 block content
-  form(method="post",action="/iban")
+  form(method="post",action="/iban",id="input-form")
     p
       | Please enter your IBAN here:
       input(type='text', name='number')
 
-    input(type='submit', value='',name='number')
-
-    p Your IBAN is #{result}
+    input(type='submit', value='',name='number',id='submit')
